@@ -10,4 +10,8 @@ public class HelloWorld {
     public void hello() {
         System.out.println("hello"+name);
     }
+
+    public HelloWorld(){
+        System.out.println("HelloWorld's Constructor...");
+    }
 }

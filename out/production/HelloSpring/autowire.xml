@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person1" class="autowire.Person">
+        <property name="name" value="Jerry"/>
+        <property name="age" value="23"/>
+        <property name="cars" ref="car1"/>
+    </bean>
+
+    <bean id="car1" class="autowire.Car">
+        <property name="brand" value="RBM"/>
+        <property name="price" value="400000"/>
+    </bean>
+
+    <bean id="car" class="autowire.Car">
+        <property name="price" value="300000"/>
+        <property name="brand" value="Audi"/>
+    </bean>
+
+    <bean id="person2" class="autowire.Person"
+        autowire="byName"
+    >
+        <property name="name" value="Tom"/>
+        <property name="age" value="33"/>
+    </bean>
+
+</beans>

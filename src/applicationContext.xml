@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <bean id="helloWorld" class="test.HelloWorld">
-        <property name="name" value="Spring"></property>
+        <property name="name" value="Spring"/>
     </bean>
+
+    <bean id="person1" class="test.Person">
+        <property name="name" value="Tom"/>
+        <property name="age" value="24"/>
+        <property name="car">
+            <!--内部bean,只能在内部使用，不能被外部使用，所以不定义id-->
+            <bean class="test.Car">
+                <constructor-arg value="Audi"/>
+                <constructor-arg value="Shanghai" type="java.lang.String"/>
+                <constructor-arg value="44000" type="double"/>
+            </bean>
+        </property>
+    </bean>
+
 
 </beans>

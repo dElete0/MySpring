@@ -10,12 +10,26 @@ public class Main {
 
         name.setName("Tom");
 
+        ClassPathXmlApplicationContext: ApplicationContext 接口的实现类
+
         */
 
+        //创建Spring 的 IOC 容器对象
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        HelloWorld helloWorld = (HelloWorld) ctx.getBean("helloWorld");
+        //从IOC容器中获取Bean 的实例
+        //利用id定位到容器中的bean
+        //HelloWorld helloWorld = (HelloWorld) ctx.getBean("helloWorld");
+        //利用返回IOC容器中的bean，但要求只有一个Bean
+        //HelloWorld helloWorld = ctx.getBean(HelloWorld.class);
 
-        helloWorld.hello();
+
+        //System.out.println(helloWorld);
+
+        //调用hello方法
+        //helloWorld.hello();
+
+        Person person = ctx.getBean(Person.class);
+        System.out.println(person);
     }
 }
